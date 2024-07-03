@@ -11,9 +11,9 @@ const app = express();
 db();
 
 app.use(cors({
-    origin: ['http://localhost:3001', 'https://golmerataskmanager-frontend.vercel.app'],
+    origin: ["https://golmerataskmanager-frontend.vercel.app"],
     credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
 }));
 
