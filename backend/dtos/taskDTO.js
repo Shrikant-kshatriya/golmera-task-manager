@@ -16,5 +16,15 @@ module.exports = {
             this.dueDate = task.dueDate,
             this.status = task.status
         }
+    },
+    AdminTaskResponseDTO: class AdminTaskResponseDTO {
+        constructor(task){
+            this.id = task._id,
+            this.title = task.title,
+            this.description = task.description,
+            this.dueDate = task.dueDate,
+            this.status = task.status
+            this.userID = task.userID
+        }
     }
 }
