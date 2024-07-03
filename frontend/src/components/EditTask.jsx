@@ -13,22 +13,24 @@ const EditTask = () => {
     const {id} = useParams();
 
     useEffect(() => {
-        console.log(id)
-        // Fetch initial options
-        try {
-            axios.get(`https://golmerataskmanager-backend.vercel.app/tasks/${id}`, {
-                withCredentials: true
-            })
-           .then(res => {
-             const { title, description, dueDate, status } = res.data;
-             setTitle(title);
-             setDescription(description);
-             setDueDate(new Date(dueDate).toISOString().split('T')[0]);
-             setStatus(status);
-           })  
-        } catch (error) {
-            console.log(error)
+        const fetchDetails = async (id) => {
+            // Fetch initial options
+            try {
+                axios.get(`https://golmerataskmanager-backend.vercel.app/tasks/${id}`, {
+                    withCredentials: true
+                })
+               .then(res => {
+                 const { title, description, dueDate, status } = res.data;
+                 setTitle(title);
+                 setDescription(description);
+                 setDueDate(new Date(dueDate).toISOString().split('T')[0]);
+                 setStatus(status);
+               })  
+            } catch (error) {
+                console.log(error)
+            }
         }
+        fetchDetails(id);
     },[])
 
     const handleSubmit = async (event) => {
