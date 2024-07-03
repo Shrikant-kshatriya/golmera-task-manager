@@ -16,13 +16,13 @@ const Home = () => {
     
     useEffect(() => {
       const fetchTasks = async () => {
-        const res = await axios.get('http://localhost:3000/tasks', {
+        const res = await axios.get('https://golmerataskmanager-backend.vercel.app/tasks', {
           withCredentials: true,
         });
         setTasks(res.data);
         };
         const fetchAdminTasks = async () => {
-            const res = await axios.get('http://localhost:3000/admin/tasks', {
+            const res = await axios.get('https://golmerataskmanager-backend.vercel.app/admin/tasks', {
                 withCredentials: true,
               });
               setTasks(res.data);
@@ -31,7 +31,7 @@ const Home = () => {
           }, [tasks]);
           
           const handleDelete = async (id) => {
-            await axios.delete(`http://localhost:3000/tasks/${id}`, { withCredentials: true });
+            await axios.delete(`https://golmerataskmanager-backend.vercel.app/tasks/${id}`, { withCredentials: true });
             setTasks(tasks.filter(task => task._id !== id));
           };
           

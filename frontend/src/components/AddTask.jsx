@@ -15,7 +15,7 @@ const AddTask = ({ onTaskAdded }) => {
         event.preventDefault();
         try {
             const newTask = { title, description, dueDate, status };
-            const res = await axios.post('http://localhost:3000/tasks', newTask, {
+            const res = await axios.post('https://golmerataskmanager-backend.vercel.app/tasks', newTask, {
                 headers: {
                     'Content-Type': 'application/json'
                 },

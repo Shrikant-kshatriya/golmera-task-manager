@@ -16,7 +16,7 @@ const EditTask = () => {
         console.log(id)
         // Fetch initial options
         try {
-            axios.get(`http://localhost:3000/tasks/${id}`, {
+            axios.get(`https://golmerataskmanager-backend.vercel.app/tasks/${id}`, {
                 withCredentials: true
             })
            .then(res => {
@@ -35,7 +35,7 @@ const EditTask = () => {
         event.preventDefault();
         try {
             const newTask = { title, description, dueDate, status };
-            const res = await axios.put(`http://localhost:3000/tasks/${id}`, newTask, {
+            const res = await axios.put(`https://golmerataskmanager-backend.vercel.app/tasks/${id}`, newTask, {
                 headers: {
                     'Content-Type': 'application/json'
                 },

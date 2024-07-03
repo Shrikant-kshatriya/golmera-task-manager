@@ -11,7 +11,7 @@ const Header = () => {
 
     const handleLogout = async () => {
         try {
-            const res = await axios.post('http://localhost:3000/auth/logout', {email: user.email}, { withCredentials: true });
+            const res = await axios.post('https://golmerataskmanager-backend.vercel.app/auth/logout', {email: user.email}, { withCredentials: true });
         setUser(null);
         localStorage.removeItem('user');
         navigate('/login');}

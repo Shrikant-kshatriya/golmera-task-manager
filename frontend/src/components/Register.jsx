@@ -36,7 +36,7 @@ export default function Register() {
         }
 
         const user = {name, email, password, role};
-        const res = await axios.post('http://localhost:3000/auth/register', user, {
+        const res = await axios.post('https://golmerataskmanager-backend.vercel.app/auth/register', user, {
             headers: {
                 'Content-Type': 'application/json'
             },
