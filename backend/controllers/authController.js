@@ -38,7 +38,11 @@ module.exports = {
             }
             // generating token
             const token = jwt.sign({id: user._id, role: user.role}, process.env.JWT_SECRET_KEY, {expiresIn: '1h'});
-            res.cookie('token', token).status(200).json({ message: 'Logged in successfully', user: new UserResponseDTO(user)});
+            res.cookie('token', token,  {
+                httpOnly: true,
+                secure: true, 
+                sameSite: 'None', 
+            }).status(200).json({ message: 'Logged in successfully', user: new UserResponseDTO(user)});
         } catch (error) {
             res.status(500).json({ error: error.message});
         }
